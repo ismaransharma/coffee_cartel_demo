@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Customer Order POS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <style>
+      /* Global */
+      body {
+        background: #f0f2f5;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+      }
+
+      /* LEFT NAVBAR */
+      .side-nav {
+        background: #343a40;
+        color: #fff;
+        height: 100vh;
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 220px;
+        transition: all 0.3s;
+        z-index: 999;
+      }
+
+      .side-nav h5 {
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #f8f9fa;
+      }
+
+      .side-nav a {
+        color: #adb5bd;
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 6px;
+        transition: all 0.2s;
+      }
+
+      .side-nav a:hover {
+        background: #495057;
+        color: #fff;
+      }
+
+      /* Hamburger for mobile */
+      #hamburger {
+        display: none;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        font-size: 24px;
+        color: #343a40;
+        z-index: 1001;
+        cursor: pointer;
+      }
+
+      /* Middle Section */
+      .main-content {
+        margin-left: 220px;
+        padding: 20px;
+        transition: margin-left 0.3s;
+      }
+
+      /* Customer cards */
+      .customer-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 12px;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+        transition: 0.2s;
+      }
+
+      .customer-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      }
+
+      .customer-card.active {
+        background: #0d6efd;
+        color: #fff;
+      }
+
+      /* Order Panel */
+      .order-panel {
+        background: #fff;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Modern order items list */
+      .order-items-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 50vh;
+        overflow-y: auto;
+      }
+
+      .order-items-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-bottom: 6px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        font-size: 14px;
+      }
+
+      .order-items-list li div {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .order-items-list li span {
+        font-weight: 500;
+      }
+
+      .order-items-list li button {
+        border-radius: 6px;
+        padding: 2px 6px;
+        font-size: 12px;
+      }
+
+      /* Slide add item panel */
+      .add-item-panel {
+        position: fixed;
+        top: 0;
+        right: -350px;
+        width: 320px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -6px 0 20px rgba(0, 0, 0, 0.12);
+        transition: right 0.3s ease;
+        z-index: 1050;
+        padding: 15px;
+        overflow-y: auto;
+      }
+
+      .add-item-panel.open {
+        right: 0;
+      }
+
+      .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+      }
+
+      #sideCategoryList button,
+      #sideProductList button {
+        width: 100%;
+        margin-bottom: 6px;
+      }
+
+      /* Modal */
+      .modal-content {
+        border-radius: 12px;
+      }
+
+      .modal-body strong {
+        font-size: 15px;
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .side-nav {
+          position: fixed;
+          width: 220px;
+          left: -220px;
+        }
+
+        .main-content {
+          margin-left: 0;
+        }
+
+        #hamburger {
+          display: block;
+         position: absolute;
+        left: 58rem;
+        top: 1.5rem;
+        background-color: #252525;
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+        padding: 4px 0;
+        color: #fff;
+        border: none;
+        border-radius: .2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .add-item-panel {
+          width: 100%;
+        }
+
+        .order-items-list li {
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: 13px;
+        }
+
+        #orderItems li div.d-flex {
+          margin-top: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <i id="hamburger" class="fa fa-bars" onclick="toggleNav()"></i>
+
+    <!-- LEFT NAVBAR -->
+    <div class="side-nav" id="sideNav">
+      <h5>☕ POS</h5>
+      <a href="#"><i class="fa-solid fa-list-check me-2"></i> Orders</a>
+      <a href="#"><i class="fa-solid fa-mug-saucer me-2"></i> Menu</a>
+      <a href="#"><i class="fa-solid fa-chart-line me-2"></i> Reports</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content container-fluid">
+      <div class="row g-3">
+        <!-- MIDDLE -->
+        <div class="col-lg-6 col-12 mb-3">
+          <button
+            class="btn btn-success mb-3 shadow-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#addOrderModal"
+          >
+            <i class="fa-solid fa-plus me-1"></i> Add Order
+          </button>
+          <div class="row g-3" id="customerGrid"></div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="col-lg-6 col-12">
+          <div class="order-panel">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 id="orderTitle">Select Customer</h5>
+              <button
+                class="btn btn-primary btn-sm shadow-sm"
+                onclick="openAddItemPanel()"
+              >
+                <i class="fa-solid fa-plus"></i> Add Item
+              </button>
+            </div>
+
+            <ul class="order-items-list mb-3" id="orderItems"></ul>
+
+            <div class="mb-2">
+              <label class="form-label fw-semibold">Discount (Rs)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="discountInput"
+                value="0"
+              />
+            </div>
+
+            <h6 class="fw-semibold">
+              Total: Rs <span id="orderTotal">0</span>
+            </h6>
+            <button class="btn btn-primary w-100 mt-3 shadow-sm">
+              Finalize
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD ORDER MODAL -->
+    <div class="modal fade" id="addOrderModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Customer Order</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Customer Name</label>
+              <input type="text" id="customerName" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <strong>Categories</strong>
+              <div class="d-flex gap-2 mt-2" id="modalCategoryList"></div>
+            </div>
+
+            <div class="mb-3">
+              <strong>Products</strong>
+              <div class="d-grid gap-2 mt-2" id="modalProductList"></div>
+            </div>
+
+            <ul class="list-group" id="modalItems"></ul>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button class="btn btn-primary" onclick="saveOrder()">
+              Save Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE ADD ITEM PANEL -->
+    <div id="addItemPanel" class="add-item-panel">
+      <div class="panel-header">
+        <strong>Add Items</strong>
+        <button class="btn btn-sm btn-danger" onclick="closeAddItemPanel()">
+          Close
+        </button>
+        <hr />
+      </div>
+      <div class="panel-body">
+        <div id="sideCategoryList" class="mb-2"></div>
+        <div id="sideProductList"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      // Hamburger toggle
+      function toggleNav() {
+        const nav = document.getElementById("sideNav");
+        if (nav.style.left === "0px") {
+          nav.style.left = "-220px";
+        } else {
+          nav.style.left = "0px";
+        }
+      }
+    </script>
+  </body>
+</html>

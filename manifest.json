@@ -1,0 +1,21 @@
+{
+  "name": "Coffee Cartel",
+  "short_name": "Coffee Cartel",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "coffee-cartel.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "coffee-cartel.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ]
+}

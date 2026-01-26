@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COFFEE CARTEL | Ramgram-3 Parasi</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --bg: #050505;
+        }
+
+        body {
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Premium Styling */
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .border-gold {
+            border-color: var(--gold);
+        }
+
+        .gold-glow {
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Glass */
+        .nav-glass {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hover Reveal Effects */
+        .reveal-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reveal-img {
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .reveal-container:hover .reveal-img {
+            transform: scale(1.08);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-6 md:px-16 py-8 transition-all duration-500"
+        id="navbar">
+        <div class="text-2xl font-black tracking-tighter uppercase gold-glow">Coffee Cartel</div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-bold opacity-70">
+            <a href="#about" class="hover:text-gold transition-all hover:opacity-100">The Origin</a>
+            <a href="#menu" class="hover:text-gold transition-all hover:opacity-100">The Roasts</a>
+            <a href="#visit" class="hover:text-gold transition-all hover:opacity-100">Location</a>
+        </div>
+        <!-- <div class="h-[1px] w-12 bg-white/20"></div> -->
+    </nav>
+
+    <section
+        class="h-screen w-full flex flex-col justify-center items-center relative text-center px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/90 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80"
+                class="w-full h-full object-cover">
+        </div>
+
+        <div class="z-10" data-aos="zoom-out" data-aos-duration="2000">
+            <p class="text-[10px] md:text-xs tracking-[1em] uppercase text-gold mb-8 opacity-80">Parasi's Finest
+                Selection</p>
+            <h1 class="text-7xl md:text-[12rem] font-serif italic leading-[0.85] mb-12 gold-glow">
+                Pure <br> <span class="text-gold">Addiction.</span>
+            </h1>
+            <div class="w-[1px] h-20 bg-gradient-to-b from-gold to-transparent mx-auto"></div>
+        </div>
+    </section>
+
+    <section id="about" class="py-40 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-24 items-center">
+            <div data-aos="fade-up">
+                <span class="text-gold text-xs font-bold uppercase tracking-widest">The Headquarters</span>
+                <h2 class="text-5xl md:text-8xl font-serif italic mt-6 mb-10 leading-tight">One Space. <br>One Ritual.
+                </h2>
+                <p class="text-gray-400 text-xl font-light leading-relaxed mb-10">
+                    Located in Ramgram-3, Coffee Cartel is a sanctuary for those who appreciate the dark art of
+                    espresso. No distractions—just pure, high-pressure extraction and a vibe that commands respect.
+                </p>
+                <div class="flex gap-16 border-t border-white/10 pt-12">
+                    <div>
+                        <p class="text-4xl font-bold italic mb-1">100%</p>
+                        <p class="text-[9px] uppercase tracking-widest text-gold opacity-70">Single Origin</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold italic mb-1">Elite</p>
+                        <p class="text-[9px] uppercase tracking-widest text-gold opacity-70">Barista Standard</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-container rounded-sm" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80"
+                    class="reveal-img w-full h-[600px] object-cover grayscale opacity-80">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-40 bg-[#080808] px-6">
+        <div class="max-w-7xl mx-auto text-center mb-24" data-aos="fade-up">
+            <h2 class="text-5xl md:text-7xl font-serif italic mb-4">Signature Roasts</h2>
+            <p class="text-xs uppercase tracking-[0.5em] text-gold opacity-50">Selected for Ramgram-3</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="reveal-container mb-8 aspect-[3/4]">
+                    <img src="https://www.nestleprofessional.in/sites/default/files/2021-08/Espresso_0.jpg"
+                        class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                </div>
+                <h3 class="text-2xl font-serif italic mb-2">The Cartel Espresso</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mb-4 italic">Intensity Level: 10</p>
+                <p class="text-xl font-bold text-gold">Rs. 180</p>
+            </div>
+
+            <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="reveal-container mb-8 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"
+                        class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                </div>
+                <h3 class="text-2xl font-serif italic mb-2">Velvet Cortado</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mb-4 italic">Balanced Silkiness</p>
+                <p class="text-xl font-bold text-gold">Rs. 240</p>
+            </div>
+
+            <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                <div class="reveal-container mb-8 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80"
+                        class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                </div>
+                <h3 class="text-2xl font-serif italic mb-2">Cold-Blood Brew</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mb-4 italic">Steeped 16 Hours</p>
+                <p class="text-xl font-bold text-gold">Rs. 310</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" class="py-40 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-20 items-center border border-white/10 p-12 md:p-24 bg-zinc-950/50">
+            <div data-aos="fade-right">
+                <h2 class="text-5xl md:text-8xl font-serif italic mb-10 leading-none">Locate <br><span
+                        class="text-gold">The Source.</span></h2>
+                <div class="space-y-8 font-light tracking-wide text-gray-300">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] uppercase text-gold tracking-widest mb-2 font-bold">Address</span>
+                        <span class="text-2xl">Ramgram-3, Parasi, Nepal</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[9px] uppercase text-gold tracking-widest mb-2 font-bold">Daily Hours</span>
+                        <span class="text-2xl">07:00 AM — 09:00 PM</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[9px] uppercase text-gold tracking-widest mb-2 font-bold">Connect</span>
+                        <span class="text-2xl">+977 980 000000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-container" data-aos="zoom-in">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80"
+                    class="reveal-img w-full h-full object-cover grayscale opacity-50">
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5 bg-black">
+        <div class="text-2xl font-black uppercase tracking-tighter mb-8 gold-glow">COFFEE CARTEL</div>
+        <div class="flex justify-center gap-10 text-[9px] uppercase tracking-[0.4em] font-bold opacity-30 mb-12">
+            <a href="#">Instagram</a>
+            <a href="#">Tiktok</a>
+            <a href="#">Maps</a>
+        </div>
+        <p class="text-[8px] uppercase tracking-[1em] opacity-45">Copyright 2026 • Built for the elite</p>
+    </footer>
+
+    <script>
+        // AOS Initialization
+        AOS.init({ duration: 1200, once: true });
+
+        // Navbar Scroll Animation
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                nav.classList.add('nav-glass', 'py-4');
+                nav.classList.remove('py-8');
+            } else {
+                nav.classList.remove('nav-glass', 'py-4');
+                nav.classList.add('py-8');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Cartel | Nepal's #1 Heritage Artisan Coffee</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="js/tailwind.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="selection:bg-gold selection:text-white">
+
+    <div id="scroll-track">
+        <div id="scroll-progress">
+            <div id="scroll-label">00%</div>
+        </div>
+    </div>
+
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <div id="loader" class="fixed inset-0 flex flex-col items-center justify-center bg-[#faf8f4]">
+        <div class="relative">
+            <div class="w-28 h-36 border-2 border-[#C9A961]/30 relative rounded-b-full overflow-hidden shadow-2xl">
+                <div id="liquid" class="liquid-fill absolute bottom-0 left-0 right-0"></div>
+            </div>
+            <div class="coffee-steam"></div>
+            <div class="coffee-steam"></div>
+            <div class="coffee-steam"></div>
+        </div>
+        <div class="mt-12 overflow-hidden">
+            <p id="loader-text" class="text-[11px] uppercase tracking-[0.8em] font-bold text-[#C9A961]/60">
+                Brewing Excellence
+            </p>
+        </div>
+    </div>
+
+    <nav
+        class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center backdrop-blur-md border-b border-[#C9A961]/10 transition-all">
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A961] to-[#9d7e3f] flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">CC</span>
+                </div>
+                <span class="text-xs font-bold tracking-[0.4em] uppercase gradient-text">Coffee Cartel</span>
+            </div>
+        </div>
+
+        <div class="hidden lg:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em]">
+            <a href="#" class="nav-link hover:text-[#C9A961]">Home</a>
+            <a href="#about" class="nav-link hover:text-[#C9A961]">Our Story</a>
+            <a href="#products" class="nav-link hover:text-[#C9A961]">Collections</a>
+            <a href="#contact" class="nav-link hover:text-[#C9A961]">Contact</a>
+        </div>
+
+        <div id="hamburger" class="hamburger lg:hidden text-[#1a1614]">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div id="mobile-menu">
+        <div class="space-y-10">
+            <a href="#" class="block serif text-6xl italic text-white hover:pl-6 transition-all duration-300">Home</a>
+            <a href="#about" class="block serif text-6xl italic text-white hover:pl-6 transition-all duration-300">Our
+                Story</a>
+            <a href="#products"
+                class="block serif text-6xl italic text-white hover:pl-6 transition-all duration-300">Collections</a>
+            <a href="#contact"
+                class="block serif text-6xl italic text-white hover:pl-6 transition-all duration-300">Contact</a>
+        </div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Hero Section -->
+            <section class="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-6">
+                <div class="absolute inset-0 opacity-5 pointer-events-none">
+                    <div class="absolute top-20 left-10 w-64 h-64 bg-[#C9A961] rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#9d7e3f] rounded-full blur-3xl"></div>
+                </div>
+
+                <div class="text-center z-10 max-w-5xl">
+                    <span class="block text-[10px] uppercase tracking-[0.8em] mb-12 text-[#C9A961] font-bold hero-fade">
+                        Est. 2025 • Coffee Cartel
+                    </span>
+                    <h1
+                        class="hero-title text-6xl md:text-8xl lg:text-[140px] serif italic leading-[0.85] mb-12 hero-fade">
+                        You Order<br>
+                        <span class="parallax-text inline-block gradient-text" data-speed="0.8">We Brew</span>
+                    </h1>
+                    <p class="text-base md:text-lg opacity-60 mb-14 max-w-2xl mx-auto hero-fade leading-relaxed">
+                        From the misty slopes of Gulmi to your morning ritual—experience Nepal's finest single-origin
+                        arabica,
+                        crafted by 40+ micro-farmers at 1,600 meters.
+                    </p>
+                    <div class="hero-fade flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <a href="#about"
+                            class="group px-10 py-4 border-2 border-[#C9A961] text-[11px] font-bold uppercase tracking-widest btn-gold-hover">
+                            Explore Our Heritage
+                        </a>
+                        <a href="#products"
+                            class="group px-10 py-4 bg-gradient-to-r from-[#C9A961] to-[#9d7e3f] text-white text-[11px] font-bold uppercase tracking-widest hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            View Collections
+                        </a>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-12 left-12 hidden md:block hero-fade">
+                    <div class="flex items-center gap-3">
+                        <div class="w-px h-16 bg-[#C9A961]/30"></div>
+                        <p class="text-[9px] uppercase tracking-[0.4em] opacity-40">
+                            Scroll to Discover<br>Nepal's Finest Arabica
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Story Section -->
+            <section id="about" class="py-24 md:py-32 px-6 md:px-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-24">
+                        <h2 class="text-5xl md:text-7xl lg:text-8xl serif italic mb-6 gradient-text">Our Story</h2>
+                        <p class="text-lg md:text-xl opacity-60 max-w-3xl mx-auto leading-relaxed">
+                            From Himalayan slopes to your cup—the journey of Nepal's most intentional coffee.
+                        </p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
+                        <div class="reveal-frame image-container">
+                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80"
+                                class="w-full h-[500px] lg:h-[600px] object-cover shadow-2xl"
+                                alt="Coffee farmers in Nepal">
+                        </div>
+
+                        <div class="space-y-8">
+                            <h3 class="text-3xl md:text-5xl serif italic text-[#C9A961] leading-tight">
+                                Born in the Hills of<br>Gulmi & Parasi
+                            </h3>
+                            <div class="w-20 h-1 bg-gradient-to-r from-[#C9A961] to-transparent"></div>
+                            <p class="text-base md:text-lg leading-relaxed opacity-80">
+                                Coffee Cartel was founded with one clear purpose: to honor Nepal's emerging coffee
+                                heritage and connect micro-farmers directly with people who care about origin and craft.
+                            </p>
+                            <p class="text-base md:text-lg leading-relaxed opacity-80">
+                                At elevations between 1400–1800 meters, in misty cloud forests and volcanic soil, our
+                                partner farmers grow slow-maturing Arabica varieties under shade trees.
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-8 pt-8 border-t border-[#C9A961]/20">
+                                <div class="stat-number text-center">
+                                    <p class="text-4xl md:text-5xl serif italic text-[#C9A961] mb-2">40+</p>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Family Farmers
+                                    </p>
+                                </div>
+                                <div class="stat-number text-center" style="animation-delay: 0.2s">
+                                    <p class="text-4xl md:text-5xl serif italic text-[#C9A961] mb-2">2025</p>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Founded</p>
+                                </div>
+                                <div class="stat-number text-center" style="animation-delay: 0.4s">
+                                    <p class="text-4xl md:text-5xl serif italic text-[#C9A961] mb-2">100%</p>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Traceable</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gulmi Section -->
+            <section class="py-24 md:py-32 px-6 md:px-20">
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                    <div class="order-2 lg:order-1 space-y-8">
+                        <span class="text-[10px] uppercase tracking-[0.6em] text-[#C9A961] font-bold">Premium
+                            Origin</span>
+                        <h2 class="text-4xl md:text-6xl lg:text-7xl serif italic leading-tight">
+                            Grown in the<br>
+                            <span class="gradient-text">Clouds of Gulmi</span>
+                        </h2>
+                        <p class="text-base md:text-lg opacity-70 leading-relaxed">
+                            At 1,600 meters, the thin Himalayan air and volcanic soil produce beans with unmatched
+                            density and floral complexity.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-10 pt-6">
+                            <div
+                                class="bg-gradient-to-br from-[#C9A961]/5 to-transparent p-6 rounded-lg border border-[#C9A961]/10">
+                                <p class="text-3xl md:text-4xl serif italic text-[#C9A961] mb-2">1600m</p>
+                                <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Peak Altitude</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-[#C9A961]/5 to-transparent p-6 rounded-lg border border-[#C9A961]/10">
+                                <p class="text-3xl md:text-4xl serif italic text-[#C9A961] mb-2">Organic</p>
+                                <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Certified</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 reveal-frame image-container">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+                            class="w-full h-[500px] lg:h-[600px] object-cover shadow-2xl" alt="Coffee heritage">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collections / Products -->
+            <section id="products" class="py-24 md:py-32 px-6 md:px-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-[0.6em] text-[#C9A961] font-bold mb-4 block">Premium
+                                Selection</span>
+                            <h2 class="text-4xl md:text-6xl serif italic gradient-text">The Collections</h2>
+                        </div>
+                        <a href="#"
+                            class="group text-[11px] font-bold uppercase tracking-widest pb-2 text-[#C9A961] hover:text-[#9d7e3f] transition-colors border-b-2 border-[#C9A961]/30 hover:border-[#C9A961] flex items-center gap-2">
+                            View All <span class="group-hover:translate-x-1 transition-transform">→</span>
+                        </a>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                        <div class="coffee-card relative rounded-lg overflow-hidden group">
+                            <div class="image-container aspect-[3/4] bg-neutral-100 overflow-hidden">
+                                <img src="assets/espresso.webp"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <span class="text-[9px] uppercase tracking-widest opacity-50 mb-2 block">Single
+                                    Origin</span>
+                                <h3
+                                    class="text-2xl md:text-3xl serif italic mb-3 group-hover:text-[#C9A961] transition-colors">
+                                    Espresso Blend</h3>
+                                <p class="text-sm opacity-60 mb-4 leading-relaxed">
+                                    Bold, full-bodied extraction with notes of dark chocolate and caramel.
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <span class="price-tag font-bold text-lg text-[#C9A961]">NPR 120</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="coffee-card relative rounded-lg overflow-hidden group">
+                            <div class="image-container aspect-[3/4] bg-neutral-100 overflow-hidden">
+                                <img src="assets/v60.webp"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <span class="text-[9px] uppercase tracking-widest opacity-50 mb-2 block">Pour
+                                    Over</span>
+                                <h3
+                                    class="text-2xl md:text-3xl serif italic mb-3 group-hover:text-[#C9A961] transition-colors">
+                                    V60 Reserve</h3>
+                                <p class="text-sm opacity-60 mb-4 leading-relaxed">
+                                    Bright, floral notes with honey sweetness and citrus undertones.
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <span class="price-tag font-bold text-lg text-[#C9A961]">NPR 350</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="coffee-card relative rounded-lg overflow-hidden group">
+                            <div class="image-container aspect-[3/4] bg-neutral-100 overflow-hidden">
+                                <img src="assets/frenchpress.avif"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <span
+                                    class="text-[9px] uppercase tracking-widest opacity-50 mb-2 block">Immersion</span>
+                                <h3
+                                    class="text-2xl md:text-3xl serif italic mb-3 group-hover:text-[#C9A961] transition-colors">
+                                    French Press</h3>
+                                <p class="text-sm opacity-60 mb-4 leading-relaxed">
+                                    Rich, complex body with nutty undertones and smooth finish.
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <span class="price-tag font-bold text-lg text-[#C9A961]">NPR 400</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-24 md:py-32 px-6 md:px-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-20">
+                        <span
+                            class="text-[10px] uppercase tracking-[0.6em] text-[#C9A961] font-bold mb-4 block">Customer
+                            Love</span>
+                        <h2 class="text-4xl md:text-6xl serif italic gradient-text">What They Say</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div
+                            class="bg-white/50 p-8 rounded-lg border border-[#C9A961]/10 hover:border-[#C9A961]/30 transition-all">
+                            <div class="flex gap-1 mb-4">
+                                <span class="text-[#C9A961]">★</span><span class="text-[#C9A961]">★</span><span
+                                    class="text-[#C9A961]">★</span><span class="text-[#C9A961]">★</span><span
+                                    class="text-[#C9A961]">★</span>
+                            </div>
+                            <p class="text-sm md:text-base opacity-70 mb-6 leading-relaxed italic">
+                                "The best coffee I've tasted in Nepal. You can taste the altitude and care in every
+                                cup."
+                            </p>
+                            <p class="text-xs uppercase tracking-widest font-bold">— Rajesh K., Hakui</p>
+                        </div>
+
+                        <div
+                            class="bg-white/50 p-8 rounded-lg border border-[#C9A961]/10 hover:border-[#C9A961]/30 transition-all">
+                            <div class="flex gap-1 mb-4">
+                                <span class="text-[#C9A961]">★</span><span class="text-[#C9A961]">★</span><span
+                                    class="text-[#C9A961]">★</span><span class="text-[#C9A961]">★</span><span
+                                    class="text-[#C9A961]">★</span>
+                            </div>
+                            <p class="text-sm md:text-base opacity-70 mb-6 leading-relaxed italic">
+                                "Finally, a Nepali coffee brand that rivals international standards. Absolutely
+                                premium."
+                            </p>
+                            <p class="text-xs uppercase tracking-widest font-bold">— Maya S., Parasi</p>
+                        </div>
+
+                        <div
+                            class="bg-white/50 p-8 rounded-lg border border-[#C9A961]/10 hover:border-[#C9A961]/30 transition-all">
+                            <div class="flex gap-1 mb-4">
+                                <span class="text-[#C9A961]">★</span><span class="text-[#C9A961]">★</span><span
+                                    class="text-[#C9A961]">★</span><span class="text-[#C9A961]">★</span><span
+                                    class="text-[#C9A961]">★</span>
+                            </div>
+                            <p class="text-sm md:text-base opacity-70 mb-6 leading-relaxed italic">
+                                "Supporting local farmers while enjoying world-class coffee? Count me in!"
+                            </p>
+                            <p class="text-xs uppercase tracking-widest font-bold">— Anil B., Sunwal</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer id="contact" class="py-20 px-6 md:px-20 border-t-2 border-[#C9A961]/10">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid lg:grid-cols-4 gap-12 lg:gap-20 mb-16">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-[#C9A961] to-[#9d7e3f] flex items-center justify-center">
+                                    <span class="text-white font-bold">CC</span>
+                                </div>
+                                <h2 class="text-3xl serif italic gradient-text">Coffee Cartel</h2>
+                            </div>
+                            <p class="text-sm opacity-60 max-w-md leading-relaxed mb-8">
+                                Nepal's premiere destination for traceable, micro-lot coffee. Every bean tells the story
+                                of the farmer who raised it with care and passion.
+                            </p>
+                            <div class="flex gap-6">
+                                <a href="#"
+                                    class="text-xs uppercase tracking-widest hover:text-[#C9A961] transition-colors font-bold">Instagram</a>
+                                <a href="#"
+                                    class="text-xs uppercase tracking-widest hover:text-[#C9A961] transition-colors font-bold">Facebook</a>
+                                <a href="#"
+                                    class="text-xs uppercase tracking-widest hover:text-[#C9A961] transition-colors font-bold">TikTok</a>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-[#C9A961] mb-6">Quick Links
+                            </p>
+                            <ul class="space-y-3 text-sm opacity-70">
+                                <li><a href="#" class="hover:opacity-100 hover:text-[#C9A961] transition">Home</a></li>
+                                <li><a href="#about" class="hover:opacity-100 hover:text-[#C9A961] transition">Our
+                                        Story</a></li>
+                                <li><a href="#products"
+                                        class="hover:opacity-100 hover:text-[#C9A961] transition">Collections</a></li>
+                                <li><a href="#" class="hover:opacity-100 hover:text-[#C9A961] transition">Brewing
+                                        Guide</a></li>
+                                <li><a href="#" class="hover:opacity-100 hover:text-[#C9A961] transition">Wholesale</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-4">
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-[#C9A961] mb-6">Get in Touch
+                            </p>
+                            <ul class="space-y-3 text-sm opacity-70">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#C9A961] mt-1">📍</span>
+                                    <span>Ramgram-03, Parasi<br>Nawalparasi, Nepal</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-[#C9A961]">📞</span>
+                                    <span>+977 9876543210</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pt-10 border-t border-[#C9A961]/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40" id="copyright">
+                            © <span id="current-year"></span> Coffee Cartel • All Rights Reserved
+                        </p>
+                        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40">
+                            Design by <a href="#" class="text-[#C9A961] hover:underline">Smaran Sharma</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

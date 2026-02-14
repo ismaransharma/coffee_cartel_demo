@@ -44,11 +44,18 @@ window.addEventListener('scroll', () => {
 });
 
 document.querySelectorAll('.parallax-text').forEach(text => {
-    const speed = parseFloat(text.getAttribute('data-speed'));
-    gsap.to(text, {
-        y: -100 * speed,
-        scrollTrigger: { trigger: text, start: "top bottom", end: "bottom top", scrub: 1.5 }
-    });
+    if (window.innerWidth > 768) {
+        const speed = parseFloat(text.getAttribute('data-speed'));
+        gsap.to(text, {
+            y: -100 * speed,
+            scrollTrigger: {
+                trigger: text,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5
+            }
+        });
+    }
 });
 
 gsap.utils.toArray(".reveal-frame").forEach(frame => {
